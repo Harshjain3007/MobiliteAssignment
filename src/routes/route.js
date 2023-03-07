@@ -9,7 +9,7 @@ const mid = require('../auth/userAuth')
 const mid1 = require('../auth/adminAuth')
 
 
-router.post('/users',userController. userCreation)
+router.post('/createUser',userController.userCreation)
 router.post('/login',userController.userLogin)
 router.post('/admins',adminController.createAdmin)
 router.post('/loginadmin',adminController.adminLogin)

@@ -65,7 +65,7 @@ return res.status(200).send({status:true,message:'success',updatedata:updatedDat
 const deleteProduct = async function(req,res){
   let productId = req.params.productId
   let existId = await productModel.findOne({productId})
-  if(existId.length==0||existId.isDeleted==true) return res.status(404).send({status:false,message:'id not found'})
+  if(!existId||existId.isDeleted==true) return res.status(404).send({status:false,message:'id not found'})
   //let data = req.body
   let deletedProduct = 
   await productModel.findOneAndUpdate({productId },{ $set: { isDeleted: true} }, { new: true });
